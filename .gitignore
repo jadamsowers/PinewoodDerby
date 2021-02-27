@@ -1,0 +1,13 @@
+# Fonts
+*.ttf
+*.otf
+
+# Track data
+*.csv
+
+# Rendered video
+*.mp4
+*.mov
+
+# Python
+*.pyc
