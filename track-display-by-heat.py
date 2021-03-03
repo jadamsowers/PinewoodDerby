@@ -1,4 +1,4 @@
-import cv2, time, csv, glob, numpy
+import cv2, time, csv, glob, numpy, re
 
 from PIL         import ImageFont, ImageDraw, Image, ImageFilter, ImageChops
 from collections import defaultdict
@@ -104,7 +104,7 @@ for file in csvFiles:
 
     # Set up video file container
     fourcc = cv2.VideoWriter_fourcc(*'avc1')
-    video  = cv2.VideoWriter('Output/' + file[:-4] + '-heats.mov', fourcc, float(FPS), (width, height))
+    video  = cv2.VideoWriter('Output/' + re.sub(r'^Results\/(.*)\.csv$', r'\1', file) + '-heats.mov', fourcc, float(FPS), (width, height))
 
     # pre-render the base image. We will combine it with the live data later.
     base      = Image.fromarray(canvas)
